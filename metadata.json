@@ -1,0 +1,6 @@
+{
+  "name": "Orient Academy",
+  "description": "Litsenziyalangan IELTS va CEFR tayyorlov markazi. Sifatli ta'lim, malakali ustozlar va yuqori natijalar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;550;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --color-brand-bg: var(--bg-primary);
+  --color-brand-bg-sec: var(--bg-secondary);
+  --color-brand-card: var(--bg-card);
+  --color-brand-accent: var(--color-accent);
+  --color-brand-accent-hover: var(--color-accent-hover);
+  --color-brand-accent-rgb: var(--color-accent-rgb);
+  --color-brand-text: var(--text-primary);
+  --color-brand-muted: var(--text-secondary);
+  --color-brand-border: var(--border-color);
+  --color-brand-border-light: var(--border-light);
+  --color-brand-border-bright: var(--border-bright);
+  --color-brand-glow: var(--glow-color);
+  --color-brand-glow-strong: var(--glow-strong);
+  --color-brand-popular-bg: var(--color-popular-bg);
+}
+
+:root {
+  /* Default Theme: Premium Vibrant Emerald Green (original but slightly lighter, clean) */
+  --opacity-orbs: 0.16;
+  --bg-primary: #042523; 
+  --bg-secondary: #063431; 
+  --bg-card: #094541; 
+  --color-accent: #0dd4cd; 
+  --color-accent-hover: #14f0e7;
+  --color-accent-rgb: 13, 212, 205;
+  --text-primary: #f0fdfa; 
+  --text-secondary: #85aba6; 
+  --border-color: rgba(13, 212, 205, 0.18);
+  --border-light: rgba(13, 212, 205, 0.08);
+  --border-bright: rgba(13, 212, 205, 0.4);
+  --glow-color: rgba(13, 212, 205, 0.12);
+  --glow-strong: rgba(13, 212, 205, 0.35);
+  --color-popular-bg: #032d2a;
+}
+
+.dark {
+  /* Dark Mode Theme: Midnight Slate / Sapphire Tech Blue */
+  --opacity-orbs: 0.12;
+  --bg-primary: #020617; 
+  --bg-secondary: #0f172a; 
+  --bg-card: #18233c; 
+  --color-accent: #38bdf8; 
+  --color-accent-hover: #7dd3fc;
+  --color-accent-rgb: 56, 189, 248;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(56, 189, 248, 0.18);
+  --border-light: rgba(56, 189, 248, 0.08);
+  --border-bright: rgba(56, 189, 248, 0.4);
+  --glow-color: rgba(56, 189, 248, 0.12);
+  --glow-strong: rgba(56, 189, 248, 0.35);
+  --color-popular-bg: #0e1e38;
+}
+
+/* Base Style Fixes */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.4s ease-in-out, color 0.4s ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-accent);
+  border-radius: 999px;
+  opacity: 0.3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-hover);
+}
+
+/* Orb Float Animation */
+@keyframes orb-float-1 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.15;
+  }
+  50% {
+    transform: translate(40px, -30px) scale(1.1);
+    opacity: 0.22;
+  }
+}
+
+@keyframes orb-float-2 {
+  0%, 100% {
+    transform: translate(0, 0) scale(1.05);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translate(-30px, 40px) scale(0.95);
+    opacity: 0.16;
+  }
+}
+
+.animate-orb-1 {
+  animation: orb-float-1 12s ease-in-out infinite;
+}
+
+.animate-orb-2 {
+  animation: orb-float-2 16s ease-in-out infinite;
+}
+
+/* Logo 3D Spin Animation - Bouncing 3D spin on Y-axis with premium glowing action */
+@keyframes logo-spin-3d {
+  0% {
+    transform: rotateY(0deg) scale(1);
+    filter: drop-shadow(0 0 0px rgba(247, 224, 43, 0));
+  }
+  8% {
+    transform: rotateY(0deg) scale(1.18);
+    filter: drop-shadow(0 0 12px rgba(247, 224, 43, 0.6));
+  }
+  24% {
+    /* Fast 3D spin with maximum spring/overshoot action and intense yellow glow */
+    transform: rotateY(360deg) scale(1.25);
+    filter: drop-shadow(0 0 24px rgba(247, 224, 43, 0.9));
+  }
+  38% {
+    transform: rotateY(360deg) scale(0.96);
+    filter: drop-shadow(0 0 4px rgba(247, 224, 43, 0.2));
+  }
+  48% {
+    transform: rotateY(360deg) scale(1.04);
+  }
+  58% {
+    transform: rotateY(360deg) scale(1.0);
+    filter: drop-shadow(0 0 0px rgba(247, 224, 43, 0));
+  }
+  100% {
+    transform: rotateY(360deg) scale(1);
+    filter: drop-shadow(0 0 0px rgba(247, 224, 43, 0));
+  }
+}
+
+.animate-spin-logo {
+  animation: logo-spin-3d 3s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+  display: inline-block;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+  will-change: transform, filter;
+}
+
